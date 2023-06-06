@@ -1,0 +1,12 @@
+algorillas.dev {
+    encode gzip
+        
+        root * /usr/share/caddy/html
+        try_files {path} /index.html
+        file_server
+}
+
+
+www.algorillas.dev {
+	redir https://algorillas.dev{uri}
+}
