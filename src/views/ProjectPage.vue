@@ -1,6 +1,6 @@
 <template>
     <h1>
-        Projekte
+        Projekte pimmel
     </h1>
 </template>
 <script>
