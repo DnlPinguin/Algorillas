@@ -32,13 +32,13 @@ export default {
             teamMembers: [
                 {
                     name: "Tomi",
-                    profilePicture: "@/assets/images/TomiSamurai.png",
+                    profilePicture: "@/assets/images/GorillaFace.png",
                     description:
                         "Tomi is a talented developer with a passion for creating innovative solutions. With a strong background in frontend development, Tomi excels at building user interfaces that are both functional and visually appealing.",
                 },
                 {
                     name: "Daniel",
-                    profilePicture: "@/assets/images/TomiSamurai.png",
+                    profilePicture: "@/assets/images/GorillaFace.png",
                     description:
                         "Daniel is an experienced developer with expertise in backend development and system architecture. He has a knack for designing scalable, efficient systems that stand the test of time.",
                 },
