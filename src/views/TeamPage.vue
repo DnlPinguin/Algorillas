@@ -3,12 +3,17 @@
 
 <template>
     <div id="team-section" class="section">
+
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Button
+        </button>
+
         <h2>Our Team</h2>
         <div class="team-container">
             <div v-for="(team, index) in teamMembers" v-bind:key="'t-member-' + index" class="team-member">
                 <h3>{{ team.name }}</h3>
                 <div class="profile-picture-container">
-                    <img src="@/assets/images/TomiSamurai.png" alt="Tomi" class="profile-picture">
+                    <img src="@/assets/images/GorillaFace.png" alt="Tomi" class="profile-picture">
                 </div>
                 <p>
                     {{ team.description }}
@@ -27,13 +32,13 @@ export default {
             teamMembers: [
                 {
                     name: "Tomi",
-                    profilePicture: "@/assets/images/TomiSamurai.png",
+                    profilePicture: "@/assets/images/GorillaFace.png",
                     description:
                         "Tomi is a talented developer with a passion for creating innovative solutions. With a strong background in frontend development, Tomi excels at building user interfaces that are both functional and visually appealing.",
                 },
                 {
                     name: "Daniel",
-                    profilePicture: "@/assets/images/TomiSamurai.png",
+                    profilePicture: "@/assets/images/GorillaFace.png",
                     description:
                         "Daniel is an experienced developer with expertise in backend development and system architecture. He has a knack for designing scalable, efficient systems that stand the test of time.",
                 },

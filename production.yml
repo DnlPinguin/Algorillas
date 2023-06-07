@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+
+  caddy:
+    build:
+      context: .
+      dockerfile: ./webserver/caddy/production/Dockerfile
+    volumes:
+      - /data/algorillas/production/caddy:/data
+      - /data/algorillas/production/app/data:/app-data
+      - media:/app/media
+      - static:/app/static
+    ports:
+      - "80:80"
+      - "443:443"
+
+volumes:
+  media:
+  static:
+  database:
