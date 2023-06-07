@@ -12,9 +12,6 @@ function run_compose() {
    run_ssh "docker-compose -f $REMOTE_PATH/production.yml $1"
 }
 
-run_ssh "mkdir -p $REMOTE_PATH/.envs/.production"
-run_ssh "echo '$APP' > $REMOTE_PATH/.envs/.production/.app"
-run_ssh "echo '$DB' > $REMOTE_PATH/.envs/.production/.db"
 
 run_ssh "git pull origin main"
 run_compose "build"
