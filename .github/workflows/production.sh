@@ -5,7 +5,7 @@ HOST=3.66.147.23
 PORT=22
 
 function run_ssh() {
-  ssh -o StrictHostKeyChecking=no root@$HOST -p $PORT -i ~/.ssh/id_fit-in-finance -C "cd $REMOTE_PATH && $1"
+  ssh -o StrictHostKeyChecking=no root@$HOST -p $PORT -i ~/.ssh/id_algorillas -C "cd $REMOTE_PATH && $1"
 }
 
 function run_compose() {
