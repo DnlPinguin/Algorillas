@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="contact-container">
         <div class="space-small" />
         <div class="contact-box">
             <h2>
@@ -24,14 +24,16 @@
 
             </form>
             <div class="contact-checkbox-group">
-                <label>
-                    <input type="checkbox" :checked="form.nda">
-                    <span>Ich möchte eine NDA anfertigen lassen.</span>
-                </label>
-                <label>
-                    <input type="checkbox">
-                    <span>Ich habe die AGB gelesen und akzeptiere diese.</span>
-                </label>
+                <div class="flex items-center">
+                    <input id="link-checkbox" type="checkbox" value=""
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="link-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ich möchte
+                        ein
+                        with the <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">NDA</a> zugeschickt
+                        bekommen.</label>
+                </div>
+
+
             </div>
             <div class="contact-button-group">
                 <button class="contact-button" type="submit">Absenden</button>
@@ -82,7 +84,7 @@ export default {
 </script>
   
 <style scoped>
-.container {
+.contact-container {
     background: whitesmoke;
     min-height: 80vh;
 }
@@ -129,39 +131,8 @@ form {
     grid-template-columns: repeat(1, 1fr);
 }
 
-label {
-    display: flex;
-    flex-direction: column;
-    color: black;
-    font-weight: 600;
-    width: 90%;
-    margin-bottom: 3vh;
-    padding-top: 1vh;
-}
 
 
-
-.contact-checkbox-group {
-    display: flex;
-    margin-right: auto;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-top: 2vh;
-    width: 100%;
-}
-
-.contact-checkbox-group label {
-    display: flex;
-    align-items: center;
-    font-weight: 100;
-    font-size: 0.8rem;
-    flex-direction: row;
-    color: black;
-}
-
-.contact-checkbox-group input {
-    margin-right: 1vw;
-}
 
 .contact-button {
     width: 30%;

@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="resource-container">
         <router-link class="resources-button" to="/configurator">
             <h1>Kosten berechnen</h1>
             <p>
@@ -18,7 +18,7 @@ export default {
 }
 </script>
 <style scoped>
-.container {
+.resource-container {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -5,7 +5,7 @@
         <BurgerToggle @toggled="toggle" :open="menuOpen" class="burger-button" />
         <ul v-on:click="closeMenu" class="desktop">
             <ul class="logo-container">
-                <div class="container algorillas-logo">
+                <div class="algorillas-logo">
                     <div class="wrapper">
                         <div class="animation-container">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -46,7 +46,9 @@
                 </li>
                 <li>
                     <router-link to="/contact">
-                        <button class="contact-button">Kontakt</button>
+                        <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">
+                            Kontakt
+                        </button>
                     </router-link>
                 </li>
             </ul>

@@ -1,6 +1,6 @@
 <template>
     <footer class="footer">
-        <div class="container">
+        <div class="footer-container">
             <div class="column ">
                 <h3>About us</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae.</p>
@@ -54,7 +54,7 @@ export default {
     text-align: center;
 }
 
-.container {
+.footer-container {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
 }

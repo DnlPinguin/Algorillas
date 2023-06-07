@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="landing-container">
         <div class="landing">
             <span class="typewriter">{{ "Currently " + displayText }} <!--<span class="blinking-cursor">|</span>--></span>
             <img src="@/assets/images/LogoDuplicate.png" alt="Tomi" class="profile-picture">
@@ -115,7 +115,7 @@ export default {
 }
 </script>
 <style scoped>
-.container {
+.landing-container {
     display: flex;
     flex-direction: column;
     width: 100%;
