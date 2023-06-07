@@ -3,6 +3,11 @@
 
 <template>
     <div id="team-section" class="section">
+
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Button
+        </button>
+
         <h2>Our Team</h2>
         <div class="team-container">
             <div v-for="(team, index) in teamMembers" v-bind:key="'t-member-' + index" class="team-member">
