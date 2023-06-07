@@ -23,6 +23,7 @@
                     </div>
                 </div>
                 <h1>Algorillas</h1>
+                <h1>Algorillas</h1>
             </ul>
             <ul class="navigation-button-group">
                 <li>
