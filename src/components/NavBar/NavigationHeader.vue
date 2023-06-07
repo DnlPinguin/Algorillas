@@ -20,8 +20,12 @@
                     <router-link class="navigation-button" to="/team">Team</router-link>
                 </li>
                 <li>
-                    <SmoothScrollButton class="contact-button" targetId="contact-section" :label="text[language].contact">
-                    </SmoothScrollButton>
+                    <router-link class="navigation-button" to="/resources">Resources</router-link>
+                </li>
+                <li>
+                    <router-link to="/contact">
+                        <button class="contact-button">Kontakt</button>
+                    </router-link>
                 </li>
             </ul>
 
@@ -41,14 +45,12 @@
 
 import BurgerToggle from './BurgerToggle.vue'
 import SideBar from './SideBar.vue'
-import SmoothScrollButton from '../Elements/SmoothScrollButton.vue'
 
 export default {
     name: 'NavigationHeader',
     components: {
         BurgerToggle,
-        SideBar,
-        SmoothScrollButton
+        SideBar
     },
     props: {
         language: String,

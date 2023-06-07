@@ -9,11 +9,11 @@
             <div class="column">
                 <h5>Was wir bieten</h5>
                 <ul>
-                    <li><a href="#">Produkt 1</a></li>
-                    <li><a href="#">Produkt 2</a></li>
-                    <li><a href="#">Produkt 3</a></li>
-                    <li><a href="#">Produkt 4</a></li>
-                    <li><a href="#">Produkt 5</a></li>
+                    <li><a href="#">App Entwicklung</a></li>
+                    <li><a href="#">Web Enwticklung</a></li>
+                    <li><a href="#">App Design</a></li>
+                    <li><a href="#">Web Design</a></li>
+                    <li><a href="#">Entwickler mieten</a></li>
                 </ul>
             </div>
 

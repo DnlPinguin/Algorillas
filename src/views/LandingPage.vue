@@ -11,15 +11,16 @@
             <p>Wir bieten Ihnen eine individuelle und professionelle Lösung für Ihre digitale Präsenz.</p>
             <p>Unsere Leistungen umfassen die Entwicklung von Webseiten, Webanwendungen, Webshops und vieles mehr.</p>
             <p>Wir freuen uns darauf, Sie bei Ihrem nächsten Projekt zu unterstützen.</p>
-            <SmoothScrollButton class="contact-button" targetId="contact-section" label="Kontaktieren Sie uns">
-            </SmoothScrollButton>
+            <router-link to="/contact">
+                <button class="contact-button">Kontaktiere uns</button>
+            </router-link>
 
         </div>
         <div class="services">
             <div class="left">
                 <ul class="left-scrollable-box">
                     <li v-for="(elem, idx) in services" v-bind:key="elem + '-' + idx">
-                        <img src="@/assets/images/GorillaFace.png" alt="Tomi" class="profile-picture">
+                        <img src="@/assets/images/GorillaFace.png" alt="service-picture">
                         <h2>{{ elem }}</h2>
                     </li>
                 </ul>
@@ -29,17 +30,29 @@
                 <p>Wir bieten Ihnen eine individuelle und professionelle Lösung für Ihre digitale Präsenz.</p>
             </div>
         </div>
+        <div class="contact">
+            <div class="contact-image">
+                <img src="@/assets/images/GorillaFace.png">
+            </div>
+            <div class="contact-box">
+                <h2>
+                    Lass uns über dein Projekt sprechen
+                </h2>
+                <span>Erstelle eine kostenlose Ersteinschätzung für dein Projekt</span>
+                <router-link to="/contact">
+                    <button class="contact-button">Kontaktiere uns</button>
+                </router-link>
+            </div>
+        </div>
     </div>
 </template>
 <script>
 
-import SmoothScrollButton from "@/components/Elements/SmoothScrollButton.vue";
 
 
 export default {
     name: "LandingPage",
     components: {
-        SmoothScrollButton
     },
     data() {
         return {
@@ -188,6 +201,30 @@ export default {
     top: 12vh;
     width: 100%;
     z-index: 100;
+}
+
+.contact {
+    height: 40vh;
+    background-color: orange;
+    background: linear-gradient(90deg, rgb(254, 169, 57) 0%, rgb(236, 131, 38) 100%);
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.contact-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-image img {
+    height: 20rem;
+    width: auto;
+}
+
+
+.contact-box h2 {
+    padding-top: 3vh;
 }
 
 @keyframes blink {

@@ -4,7 +4,6 @@
     <main>
       <router-view></router-view>
     </main>
-    <ContactSection id="contact-section" />
     <FooterSection />
   </div>
 </template>
@@ -13,11 +12,10 @@
 
 import NavigationHeader from './components/NavBar/NavigationHeader.vue';
 import FooterSection from './components/Footer/FooterSection.vue';
-import ContactSection from './components/Contact/ContactSection.vue';
 
 export default {
   components: {
-    NavigationHeader, FooterSection, ContactSection
+    NavigationHeader, FooterSection
   },
   data() {
     return {
@@ -69,6 +67,46 @@ header {
 
 h1 {
   font-weight: 700;
+}
+
+input {
+  padding: 2vh;
+  border: 1px solid rgb(160, 160, 160);
+  border-radius: 5px;
+  outline: none !important;
+}
+
+textarea {
+  padding: 2vh;
+  border: 1px solid rgb(160, 160, 160);
+  border-radius: 5px;
+  outline: none !important;
+  font-family: 'Inter', sans-serif;
+}
+
+.half-width {
+  width: 50% !important;
+
+}
+
+.full-width {
+  width: 100%;
+}
+
+.quarter-width {
+  width: 25%;
+}
+
+.three-quarter-width {
+  width: 75%;
+}
+
+.seperator {
+  height: 1px;
+  background-color: black;
+  margin: auto;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
 .contact-button {
