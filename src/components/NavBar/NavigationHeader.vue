@@ -50,9 +50,11 @@
                             Kontakt
                         </button>
                     </router-link>
+                    <SmoothScrollButton class="contact-button" targetId="contact-section" :label="text[language].contact">
+                    </SmoothScrollButton>
+                    
                 </li>
             </ul>
-
 
         </ul>
         <SideBar class="side-bar" :open="menuOpen">
