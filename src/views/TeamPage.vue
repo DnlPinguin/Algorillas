@@ -13,7 +13,7 @@
             <div v-for="(team, index) in teamMembers" v-bind:key="'t-member-' + index" class="team-member">
                 <h3>{{ team.name }}</h3>
                 <div class="profile-picture-container">
-                    <img src="@/assets/images/TomiSamurai.png" alt="Tomi" class="profile-picture">
+                    <img src="@/assets/images/GorillaFace.png" alt="Tomi" class="profile-picture">
                 </div>
                 <p>
                     {{ team.description }}
