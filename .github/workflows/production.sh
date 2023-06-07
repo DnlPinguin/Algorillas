@@ -16,7 +16,7 @@ run_ssh "mkdir -p $REMOTE_PATH/.envs/.production"
 run_ssh "echo '$APP' > $REMOTE_PATH/.envs/.production/.app"
 run_ssh "echo '$DB' > $REMOTE_PATH/.envs/.production/.db"
 
-run_ssh "git pull origin master"
+run_ssh "git pull origin main"
 run_compose "build"
 sleep 10
 run_compose "up -d caddy"
