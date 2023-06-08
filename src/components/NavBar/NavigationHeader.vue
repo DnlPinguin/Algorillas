@@ -8,6 +8,7 @@
                 <div class="algorillas-logo">
                     <div class="wrapper">
                         <div class="animation-container">
+                            
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 id="interactive_logo_animation" fill="none" version="1.1" viewBox="0 0 628 770">
                                 <path id="nose_left" fill="#f97316" d="m230 438-17 17.502v45.5l10 5 51-5 11-26.5z" />
