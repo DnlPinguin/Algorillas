@@ -18,9 +18,10 @@
                     </div>
                 </div>
                 <button
-                    :class="[step == steps.length ? 'invisible' : '', 'bg-orange-500', 'hover:bg-orange-700', 'text-black', 'font-bold', 'py-2', 'px-4', 'rounded']"
+                    :class="[step == steps.length ? '' : '', 'bg-orange-500', 'hover:bg-orange-700', 'text-black', 'font-bold', 'py-2', 'px-4', 'rounded']"
                     v-on:click="nextStep">&rarr;</button>
             </div>
+
 
             <ul class="app-list overflow-scroll	">
                 <li v-for="(option, idx) in steps[step - 1].options" v-bind:key="option + '_' + step + '_' + idx" :class="[
@@ -38,6 +39,7 @@
                     </div>
                 </li>
             </ul>
+
         </div>
 
     </div>
@@ -301,7 +303,6 @@ export default {
 .configurator-box {
     display: block;
     flex-direction: column;
-    background-color: whitesmoke;
     padding-left: 2rem;
     padding-right: 2rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
