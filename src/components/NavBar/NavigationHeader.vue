@@ -1,9 +1,6 @@
 <template>
-    <header class="container mx-auto flex justify-between items-center">
-
+    <header class="pl-10  pr-10 flex justify-between items-center bg-neutral-950">
         <div class="container-xl flex justify-between items-center p-3 w-full">
-
-
             <div class="flex justify-between items-center">
                 <div class="wrapper">
                     <div class="animation-container algorillas-logo">
@@ -14,7 +11,6 @@
             </div>
 
             <nav>
-
                 <nav class="[&>*]:p-4 text-white">
                     <RouterLink to="/" class="animated-underline  hover:text-orange-500">Services</RouterLink>
                     <RouterLink to="/projects" class="animated-underline hover:text-orange-500">Projects</RouterLink>

@@ -1,32 +1,34 @@
 <template>
     <div class="configurator-box">
         <div>
-            <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl my-20">
+            <h1 class="pt-6 text-3xl text-center font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">
                 {{ steps[step - 1].name }}</h1>
-            <h3>
-                <b>Kosten</b> : {{ displayCost }}€
-            </h3>
+            <h2 class="pt-2 text-2xl text-center  text-black-200">
+                <b class="font-extrabold">Kosten</b> : {{ displayCost }}€
+            </h2>
             <div class="nav-configurator">
                 <button class="bg-orange-500 hover:bg-orange-700 text-black font-bold py-2 px-4 rounded"
                     v-on:click="previousStep">&larr;</button>
                 <div class="progress-stepper">
                     <p> <b>Schritt {{ step }} </b> von 5</p>
-                    <div class="bar">
-                        <div :class="['progress']" :style="{ width: `${step * 20}%` }" />
+                    <div class="inline-flex items-center justify-center w-full">
+                        <hr v-for="(iter, idx) in steps" v-bind:key="'navistepper_' + idx"
+                            :class="[idx <= step - 1 ? 'bg-orange-700' : 'bg-gray-400', idx === step - 1 ? 'animate-pulse' : '', 'w-full', 'h-2', 'my-8', 'duration-300']">
                     </div>
                 </div>
                 <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
                     v-on:click="nextStep">&rarr;</button>
             </div>
+
             <ul class="app-list overflow-scroll	">
                 <li v-for="(option, idx) in steps[step - 1].options" v-bind:key="option + '_' + step + '_' + idx" :class="[
                     option.checked ? 'bg-orange-500 border-solid border-2 border-orange-500' : 'bg-white-400',
-                    'max-w-sm rounded overflow-hidden shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-orange-500 duration-300'
+                    'max-w-sm rounded overflow-hidden shadow-lg transition ease-in-out delay-150 hover:-translate-y-1  hover:border-solid hover:border-2 hover:border-orange-500 hover:bg-orange-500 duration-300'
                 ]" v-on:click="addOptionToCard(option)">
                     <img class="w-full" src="../assets/images/logo-placeholder.jpg  " alt="Sunset in the mountains">
                     <div class="px-6 py-4">
                         <div
-                            :class="[option.checked ? 'text-white' : 'text-blacl', 'font-bold', 'text-xl', 'mb-2', 'duration-300']">
+                            :class="[option.checked ? 'text-white' : 'text-black', 'font-bold', 'text-xl', 'mb-2', 'duration-300']">
                             {{
                                 option.name }}</div>
                         <p :class="[option.checked ? 'text-gray-200' : 'text-black-200', 'text-base']">
@@ -303,29 +305,9 @@ export default {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.configurator-box h2 {
-    padding-top: 40px;
-    font-size: 3.5rem;
-    color: black;
-    font-weight: 700;
-    margin-bottom: 3rem;
-}
-
-.configurator-box h3 {
-    text-align: center;
-    font-size: 2rem;
-    color: black;
-}
-
 .nav-configurator {
     display: flex;
     flex-direction: row;
-}
-
-.configurator-box h4 {
-    text-align: center;
-    font-size: 1.5rem;
-    color: black;
 }
 
 .progress-stepper {
@@ -355,6 +337,7 @@ export default {
     display: grid;
     width: 80%;
     margin: auto;
+    padding-top: 50px;
     grid-template-columns: repeat(3, 1fr);
 }
 
