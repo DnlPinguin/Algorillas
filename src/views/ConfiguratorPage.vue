@@ -1,13 +1,14 @@
 <template>
     <div class="configurator-box">
         <div>
-            <h1 class="pt-6 text-3xl text-center font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">
+            <h1 class="pt-10 text-1xl text-center font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">
                 {{ steps[step - 1].name }}</h1>
             <h2 class="pt-2 text-2xl text-center  text-black-200">
                 <b class="font-extrabold">Kosten</b> : {{ displayCost }}€
             </h2>
             <div class="nav-configurator">
-                <button class="bg-orange-500 hover:bg-orange-700 text-black font-bold py-2 px-4 rounded"
+                <button
+                    :class="[step == 1 ? 'invisible' : '', 'bg-orange-500', 'hover:bg-orange-700', 'text-black', 'font-bold', 'py-2', 'px-4', 'rounded']"
                     v-on:click="previousStep">&larr;</button>
                 <div class="progress-stepper">
                     <p> <b>Schritt {{ step }} </b> von 5</p>
@@ -16,7 +17,8 @@
                             :class="[idx <= step - 1 ? 'bg-orange-700' : 'bg-gray-400', idx === step - 1 ? 'animate-pulse' : '', 'w-full', 'h-2', 'my-8', 'duration-300']">
                     </div>
                 </div>
-                <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
+                <button
+                    :class="[step == steps.length ? 'invisible' : '', 'bg-orange-500', 'hover:bg-orange-700', 'text-black', 'font-bold', 'py-2', 'px-4', 'rounded']"
                     v-on:click="nextStep">&rarr;</button>
             </div>
 
