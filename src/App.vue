@@ -36,7 +36,6 @@ body {
   margin: 0;
   padding: 0;
   background: linear-gradient(90deg, rgb(11, 11, 14) 0%, rgb(19, 10, 2) 100%);
-  color: white;
   font-family: 'Inter', sans-serif;
 
 }
