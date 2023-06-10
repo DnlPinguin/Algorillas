@@ -9,12 +9,12 @@
                     Unsere abgeschlossenen Projekte
                 </h1>
             </div>
-            <div class="grid gap-x-20 lg:grid-cols-2">
+            <div class="grid gap-x-20 lg:grid-cols-2 ">
                 <div v-for="(project, idx) in projects" :key="project.name + '_' + idx" class="mb-40 lg:mb-20">
-                    <div class="relative mb-6 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20 bg-[50%]"
+                    <div class="relative mb-6 overflow-hidden rounded-lg  bg-cover bg-no-repeat shadow-lg dark:shadow-black/20 bg-[50%]"
                         data-te-ripple-init data-te-ripple-color="light">
                         <img v-bind:src="require('@/assets/images/' + project.image)" class="w-full" />
-                        <a href="#!">
+                        <a href="https://chartermainz.de">
                             <div
                                 class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,0.2)]">
                             </div>
