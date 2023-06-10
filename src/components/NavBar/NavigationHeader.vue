@@ -12,12 +12,13 @@
 
             <nav>
                 <nav class="[&>*]:p-4 text-white">
-                    <RouterLink to="/" class="animated-underline  hover:text-orange-500">Services</RouterLink>
-                    <RouterLink to="/projects" class="animated-underline hover:text-orange-500">Projects</RouterLink>
+                    <RouterLink to="/" class="animated-underline  hover:text-orange-500">Über Uns</RouterLink>
+                    <RouterLink to="/service" class="animated-underline  hover:text-orange-500">Services</RouterLink>
+                    <RouterLink to="/projects" class="animated-underline hover:text-orange-500">Projekte</RouterLink>
                     <RouterLink to="/team" class="animated-underline hover:text-orange-500">Team</RouterLink>
-                    <RouterLink to="/configurator" class="animated-underline hover:text-orange-500">Konfigurator
+                    <RouterLink to="/contact" class="animated-underline hover:text-orange-500">Kontakt</RouterLink>
+                    <RouterLink to="/configurator" class="btn btn-orange-500 nav-button ms-3">Projekt starten
                     </RouterLink>
-                    <RouterLink to="/contact" class="btn btn-orange-500 nav-button ms-3">Let's Talk</RouterLink>
                 </nav>
             </nav>
 
