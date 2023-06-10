@@ -1,15 +1,19 @@
 <template>
     <div class="container py-12 mx-auto md:px-6">
+        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 text-center w-11/12 mx-auto gap-10 ">
+            <CounterBox v-for="(number, idx) in keyNumbers" :key="number.name + '_' + idx" :name="number.name"
+                :countTo="number.total" :tickSpeed="number.tickSpeed" :suffix="number.suffix" />
+        </ul>
         <section class="mb-32 text-center lg:text-left">
-            <div class="text-center pb-12">
+            <div class="text-center pb-12 mt-20">
                 <h2 class="text-base font-bold text-orange-700">
                     Auf diese Aufträge sind wir besonders stolz
                 </h2>
-                <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-700">
+                <h1 class=" text-3xl md:text-4xl lg:text-5xl font-heading text-gray-700">
                     Unsere abgeschlossenen Projekte
                 </h1>
             </div>
-            <div class="grid gap-x-20 lg:grid-cols-2 ">
+            <div class="grid gap-x-20 lg:grid-cols-2">
                 <div v-for="(project, idx) in projects" :key="project.name + '_' + idx" class="mb-40 lg:mb-20">
                     <div class="relative mb-6 overflow-hidden rounded-lg  bg-cover bg-no-repeat shadow-lg dark:shadow-black/20 bg-[50%]"
                         data-te-ripple-init data-te-ripple-color="light">
@@ -39,21 +43,56 @@
                         </svg>
                         {{ project.shortDescription }}
                     </div>
-                    <p class="text-neutral-500 dark:text-neutral-300">
+                    <p class="text-neutral-500 ">
                         {{ project.description }}
                     </p>
                 </div>
             </div>
         </section>
-        <!-- Section: Design Block -->
     </div>
-    <!-- Container for demo purpose -->
 </template>
 <script>
+
+import CounterBox from '@/components/CounterBox.vue';
+
 export default {
     name: "ProjectPage",
+    components: {
+        CounterBox
+    },
     data() {
         return {
+            keyNumbers: [
+                {
+                    name: "Projekte",
+                    display: 0,
+                    total: 15,
+                    suffix: "+",
+                    tickSpeed: 90
+                },
+                {
+                    name: "Kunden",
+                    display: 0,
+                    total: 10,
+                    suffix: "+",
+                    tickSpeed: 90
+                },
+                {
+                    name: "Codezeilen",
+                    display: 0,
+                    total: 3,
+                    suffix: "mio.",
+                    tickSpeed: 400
+                },
+                {
+                    name: "Arbeit",
+                    display: 0,
+                    total: 1600,
+                    suffix: "h",
+                    tickSpeed: 1
+                }
+            ],
+
             projects: [
                 {
                     name: "Chartermainz",
@@ -83,6 +122,28 @@ export default {
             ],
         };
     },
+    methods: {
+        countTo(idx = false) {
+            if (idx) {
+                if (this.keyNumbers[idx].display < this.keyNumbers[idx].total) {
+                    this.keyNumbers[idx].display++;
+                    setTimeout(this.countTo, this.keyNumbers[idx].tickSpeed, idx);
+                }
+            }
+            let counter = 0;
+            for (let keyNumber of this.keyNumbers) {
+                if (keyNumber.display < keyNumber.total) {
+                    keyNumber.display++;
+                    setTimeout(this.countTo, keyNumber.tickSpeed, counter);
+                }
+                counter++;
+            }
+        },
+    },
+
+    mounted() {
+        this.countTo();
+    }
 }
 </script>
 <style scoped></style>

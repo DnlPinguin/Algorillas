@@ -78,9 +78,21 @@ export default {
                     }
                 },
                 {
-                    name: "Tomisalav Pree",
+                    name: "Tomislav Pree",
                     profilePicture: "TomiProfil.jpeg",
                     jobRole: "Backend Developer",
+                    description:
+                        "",
+                    socialMedia: {
+                        linkedIn: "https://www.linkedin.com/in/daniel-kowalski-1b1b3b1b3/",
+                        github: "",
+                        twitter: ""
+                    }
+                },
+                {
+                    name: "Farhan",
+                    profilePicture: "TomiProfil.jpeg",
+                    jobRole: "UX Designer",
                     description:
                         "",
                     socialMedia: {
