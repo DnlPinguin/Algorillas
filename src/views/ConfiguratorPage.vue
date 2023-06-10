@@ -59,53 +59,69 @@
                 </li>
             </ul>
         </div>
-        <div v-if="activeView == 'overview'" class="grid grid-cols-1 sm:grid-cols-2">
-
-            <ul class="grid grid-cols-1 sm:grid-cols-2  mx-auto">
-                <li>
-                    <h3 class="font-bold">Art der Webseite</h3>
-                    <ul class="ml-4 space-y-2 list-disc  py-8">
-                        <li v-for="option in filteredOptions(1)" :key="option.name">
-                            {{ option.name }}
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <h3 class="font-bold">Design</h3>
-                    <ul class="ml-4 space-y-2  list-disc  py-8">
-                        <li v-for="option in filteredOptions(2)" :key="option.name">
-                            {{ option.name }}
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <h3 class="font-bold">Funktionalität</h3>
-                    <ul class="ml-4 space-y-2 list-disc  py-8">
-                        <li v-for="option in filteredOptions(3)" :key="option.name">
-                            {{ option.name }}
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <h3 class="font-bold">Inhaltserstellung</h3>
-                    <ul class="ml-4 space-y-2 list-disc  py-8">
-                        <li v-for="option in filteredOptions(4)" :key="option.name">
-                            {{ option.name }}
+        <div v-if="activeView == 'overview'" class="grid grid-cols-1 w-10/12 mx-auto">
+            <h2 class="font-light text-1xl md:text-2xl lg:text-3xl text-gray-700">
+                Die Kosten für ihre neue Website : {{ Math.floor(displayCost * 0, 7) }} - {{
+                    Math.floor(displayCost * 1, 3) }}€
+            </h2>
+            <h2 class="font-light text-1xl md:text-2xl lg:text-2xl text-gray-700 mt-4">
+                Ihre Auswahl
+            </h2>
+            <ul class="grid grid-cols-1 mx-auto">
+                <li v-for="(step, idx) in this.steps" :key="step.name + '_overview_' + idx">
+                    <h3 class="font-bold">{{ step.name }}</h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20 my-20">
+                        <li v-for="option in filteredOptions(1)" :key="option.name" :class="[
+                            option.checked ? 'bg-orange-500 border-solid border-2 border-orange-500' : 'bg-white-400',
+                            (error && !option.checked) ? 'animate:pulse border-solid border-2 border-red-500' : '',
+                            'max-w-sm rounded overflow-hidden shadow-lg transition ease-in-out delay-150 hover:-translate-y-1  hover:border-solid hover:border-2 hover:border-orange-500 hover:bg-orange-500 duration-300'
+                        ]" v-on:click="addOptionToCard(option)">
+                            <img class="w-full" src="../assets/images/logo-placeholder.jpg  " alt="Sunset in the mountains">
+                            <div class="px-6 py-4">
+                                <div
+                                    :class="[option.checked ? 'text-white' : 'text-black', 'font-bold', 'text-xl', 'mb-2', 'duration-300']">
+                                    {{
+                                        option.name }}</div>
+                                <p :class="[option.checked ? 'text-gray-200' : 'text-black-200', 'text-base']">
+                                    {{ option.description }}</p>
+                            </div>
                         </li>
                     </ul>
                 </li>
 
-                <li>
-                    <h3 class="font-bold">Wartung und Unterstützung</h3>
-                    <ul class="ml-4 space-y-2 list-disc  py-8">
-                        <li v-for="option in filteredOptions(5)" :key="option.name">
-                            {{ option.name }}
-                        </li>
-                    </ul>
-                </li>
             </ul>
+            <section class="rounded">
+                <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-black">Fast Fertig!
+                    </h2>
+                    <p class="mb-8 lg:mb-16 font-light text-center text-black-500 sm:text-xl">Schicken sie uns eine E-Mail
+                        und wir setzen uns mit ihnen innerhalb von 24 Stunden in Kontakt.</p>
+                    <form action="#" class="space-y-8">
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-black-500">Ihre E-Mail
+                                Adresse</label>
+                            <input type="email" id="email"
+                                class="shadow-sm bg-gray-50 border border-gray-300 text-black-500 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 "
+                                placeholder="tomileggt@hodne.de" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2 text-sm font-medium text-black-500 ">Betreff</label>
+                            <input type="text" id="subject"
+                                class="block p-3 w-full text-sm text-black-500 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500"
+                                placeholder="Wie können wir ihnen helfen?" required>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="message" class="block mb-2 text-sm font-medium text-black-500 ">Ihre
+                                Nachricht</label>
+                            <textarea id="message" rows="6"
+                                class="block p-2.5 w-full text-sm text-black-500 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+                                placeholder="Beschrieben sie hier ihr anliegen"></textarea>
+                        </div>
+                        <button type="submit"
+                            :class="['bg-orange-500', 'hover:bg-orange-700', 'text-black', 'font-bold', 'py-2', 'px-4', 'rounded', 'content-center']">Absenden</button>
+                    </form>
+                </div>
+            </section>
         </div>
     </div>
 </template>
@@ -124,7 +140,7 @@ export default {
             interval: false,
             calculating: false,
             error: false,
-            activeView: 'options', // 'overview',  //options
+            activeView: 'options',
             steps: [
                 {
                     id: 1,
