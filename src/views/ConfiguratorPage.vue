@@ -1,46 +1,61 @@
 <template>
     <div class="configurator-box">
-        <div>
-            <h1 class="pt-10 text-1xl text-center font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">
-                {{ steps[step - 1].name }}</h1>
-            <h2 class="pt-2 text-2xl text-center  text-black-200">
-                <b class="font-extrabold">Kosten</b> : {{ displayCost }}€
+        <div class="text-center py-12">
+            <h2 class="text-base font-bold text-orange-700">
+                Was kostet eine Software? Wir sagen es dir!
             </h2>
-            <div class="nav-configurator">
-                <button
-                    :class="[step == 1 ? 'invisible' : '', 'bg-orange-500', 'hover:bg-orange-700', 'text-black', 'font-bold', 'py-2', 'px-4', 'rounded']"
-                    v-on:click="previousStep">&larr;</button>
-                <div class="progress-stepper">
-                    <p> <b>Schritt {{ step }} </b> von 5</p>
-                    <div class="inline-flex items-center justify-center w-full">
-                        <hr v-for="(iter, idx) in steps" v-bind:key="'navistepper_' + idx"
-                            :class="[idx <= step - 1 ? 'bg-orange-700' : 'bg-gray-400', idx === step - 1 ? 'animate-pulse' : '', 'w-full', 'h-2', 'my-8', 'duration-300']">
-                    </div>
-                </div>
-                <button
-                    :class="[step == steps.length ? '' : '', 'bg-orange-500', 'hover:bg-orange-700', 'text-black', 'font-bold', 'py-2', 'px-4', 'rounded']"
-                    v-on:click="nextStep">&rarr;</button>
-            </div>
-
-
-            <ul class="app-list overflow-scroll	">
-                <li v-for="(option, idx) in steps[step - 1].options" v-bind:key="option + '_' + step + '_' + idx" :class="[
-                    option.checked ? 'bg-orange-500 border-solid border-2 border-orange-500' : 'bg-white-400',
-                    'max-w-sm rounded overflow-hidden shadow-lg transition ease-in-out delay-150 hover:-translate-y-1  hover:border-solid hover:border-2 hover:border-orange-500 hover:bg-orange-500 duration-300'
-                ]" v-on:click="addOptionToCard(option)">
-                    <img class="w-full" src="../assets/images/logo-placeholder.jpg  " alt="Sunset in the mountains">
-                    <div class="px-6 py-4">
-                        <div
-                            :class="[option.checked ? 'text-white' : 'text-black', 'font-bold', 'text-xl', 'mb-2', 'duration-300']">
-                            {{
-                                option.name }}</div>
-                        <p :class="[option.checked ? 'text-gray-200' : 'text-black-200', 'text-base']">
-                            {{ option.description }}</p>
-                    </div>
-                </li>
-            </ul>
-
+            <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-700">
+                Kostenkonfigurator
+            </h1>
         </div>
+        <div v-if="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">Wat zur hölle! </strong>
+            <span class="block sm:inline">{{ error }}</span>
+            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                <svg class="fill-current h-6 w-6 text-red-500" role="button" v-on:click="closeWarning"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <title>Close</title>
+                    <path
+                        d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                </svg>
+            </span>
+        </div>
+
+        <h2 class="pt-2 text-2xl text-center  text-black-200">
+            <b class="font-extrabold">Kosten</b> : {{ displayCost }}€
+        </h2>
+        <div class="nav-configurator">
+            <button
+                :class="[step == 1 ? 'invisible' : '', 'bg-orange-500', 'hover:bg-orange-700', 'text-black', 'font-bold', 'py-2', 'px-4', 'rounded']"
+                v-on:click="previousStep">&larr;</button>
+            <div class="progress-stepper">
+                <p> <b>Schritt {{ step }} </b> von 5: <b>{{ steps[step - 1].name }} </b></p>
+                <div class="inline-flex items-center justify-center w-full">
+                    <hr v-for="(iter, idx) in steps" v-bind:key="'navistepper_' + idx"
+                        :class="[idx <= step - 1 ? 'bg-orange-700' : 'bg-gray-400', idx === step - 1 ? 'animate-pulse' : '', 'w-full', 'h-2', 'my-8', 'duration-300']">
+                </div>
+            </div>
+            <button
+                :class="[step == steps.length ? '' : '', 'bg-orange-500', 'hover:bg-orange-700', 'text-black', 'font-bold', 'py-2', 'px-4', 'rounded']"
+                v-on:click="nextStep">&rarr;</button>
+        </div>
+        <ul class="app-list overflow-scroll	">
+            <li v-for="(option, idx) in steps[step - 1].options" v-bind:key="option + '_' + step + '_' + idx" :class="[
+                option.checked ? 'bg-orange-500 border-solid border-2 border-orange-500' : 'bg-white-400',
+                (error && !option.checked) ? 'animate:pulse border-solid border-2 border-red-500' : '',
+                'max-w-sm rounded overflow-hidden shadow-lg transition ease-in-out delay-150 hover:-translate-y-1  hover:border-solid hover:border-2 hover:border-orange-500 hover:bg-orange-500 duration-300'
+            ]" v-on:click="addOptionToCard(option)">
+                <img class="w-full" src="../assets/images/logo-placeholder.jpg  " alt="Sunset in the mountains">
+                <div class="px-6 py-4">
+                    <div
+                        :class="[option.checked ? 'text-white' : 'text-black', 'font-bold', 'text-xl', 'mb-2', 'duration-300']">
+                        {{
+                            option.name }}</div>
+                    <p :class="[option.checked ? 'text-gray-200' : 'text-black-200', 'text-base']">
+                        {{ option.description }}</p>
+                </div>
+            </li>
+        </ul>
 
     </div>
 </template>
@@ -58,6 +73,7 @@ export default {
             displayCost: 0,
             interval: false,
             calculating: false,
+            error: false,
             steps: [
                 {
                     id: 1,
@@ -263,8 +279,14 @@ export default {
     },
     methods: {
         nextStep() {
-            if (this.step < 5)
+            if (this.steps[this.step - 1].options.filter(option => option.checked).length == 0) {
+                this.error = 'Bitte wählen Sie eine Option aus.';
+                return;
+            }
+            if (this.step < 5) {
+                this.error = false;
                 this.step++;
+            }
         },
         previousStep() {
             if (this.step > 1) {
@@ -295,6 +317,9 @@ export default {
                 this.displayCost += 1;
             }
             setTimeout(this.changePrice, 1);
+        },
+        closeWarning() {
+            this.error = false;
         }
     }
 }

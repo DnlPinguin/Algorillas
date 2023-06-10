@@ -1,12 +1,16 @@
 <template>
-    <div class="container my-24 mx-auto md:px-6">
+    <div class="container py-12 mx-auto md:px-6">
         <section class="mb-32 text-center lg:text-left">
-            <h2 class="mb-12 text-center text-3xl font-bold">
-                Projekte, auf die wir stolz sind
-            </h2>
-
-            <div class="grid gap-x-6 lg:grid-cols-3">
-                <div v-for="(project, idx) in projects" :key="project.name + '_' + idx" class="mb-12 lg:mb-0">
+            <div class="text-center pb-12">
+                <h2 class="text-base font-bold text-orange-700">
+                    Auf diese Aufträge sind wir besonders stolz
+                </h2>
+                <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-700">
+                    Unsere abgeschlossenen Projekte
+                </h1>
+            </div>
+            <div class="grid gap-x-20 lg:grid-cols-2">
+                <div v-for="(project, idx) in projects" :key="project.name + '_' + idx" class="mb-40 lg:mb-20">
                     <div class="relative mb-6 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20 bg-[50%]"
                         data-te-ripple-init data-te-ripple-color="light">
                         <img v-bind:src="require('@/assets/images/' + project.image)" class="w-full" />
@@ -16,7 +20,14 @@
                             </div>
                         </a>
                     </div>
-                    <h5 class="mb-4 text-lg font-bold">{{ project.name }}</h5>
+                    <a class="flex justify-between" href="https://chartermainz.de">
+                        <h2 class="mb-4 text-lg font-bold">{{ project.name }}</h2>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
                     <div
                         class="mb-4 flex items-center justify-center text-sm font-medium text-danger dark:text-danger-500 lg:justify-start">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
@@ -47,13 +58,13 @@ export default {
                 {
                     name: "Chartermainz",
                     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-                    image: "logo-placeholder.jpg",
+                    image: "Projects/CharterMainz.png",
                     icon: "https://mdbcdn.b-cdn.net/img/new/standard/city/044.jpg",
                     shortDescription: "Heißer Scheiß."
                 }, {
                     name: "SchokoRadeln",
                     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-                    image: "logo-placeholder.jpg",
+                    image: "Projects/SchokoRadeln.png",
                     icon: "https://mdbcdn.b-cdn.net/img/new/standard/city/044.jpg",
                     shortDescription: "Mal was Süßes."
                 }, {
