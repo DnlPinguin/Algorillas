@@ -61,17 +61,31 @@
         </div>
         <div v-if="activeView == 'overview'" class="grid grid-cols-1 w-10/12 mx-auto">
             <h2 class="font-light text-1xl md:text-2xl lg:text-3xl text-gray-700">
-                Die Kosten für ihre neue Website : {{ Math.floor(displayCost * 0, 7) }} - {{
-                    Math.floor(displayCost * 1, 3) }}€
+                Die Kosten für ihre neue Website : {{ Math.floor(displayCost * 0.7) }} - {{
+                    Math.floor(displayCost * 1.3) }}€
             </h2>
-            <h2 class="font-light text-1xl md:text-2xl lg:text-2xl text-gray-700 mt-4">
+            <h2 class="font-light text-1xl md:text-2xl lg:text-2xl text-gray-700 my-4">
                 Ihre Auswahl
             </h2>
-            <ul class="grid grid-cols-1 mx-auto">
-                <li v-for="(step, idx) in this.steps" :key="step.name + '_overview_' + idx">
-                    <h3 class="font-bold">{{ step.name }}</h3>
-                    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20 my-20">
-                        <li v-for="option in filteredOptions(1)" :key="option.name" :class="[
+            <ol class="relative border-l border-gray-200 dark:border-gray-700">
+                <li v-for="(step, idx) in this.steps" :key="step.name + '_overview_' + idx" class="mb-10 ml-6">
+                    <span
+                        class="absolute flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full -left-3 ring-8 ring-white">
+                        <svg aria-hidden="true" class="w-3 h-3 text-orange-800 " fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </span>
+                    <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 ">{{ step.name }}<span
+                            class="bg-orange-700 text-white text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">{{
+                                durationDisplay(step) }}</span>
+                    </h3>
+                    <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                        Fertigstellung am </time>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 my-20">
+                        <li v-for="option in filteredOptions(idx + 1)" :key="option.name" :class="[
                             option.checked ? 'bg-orange-500 border-solid border-2 border-orange-500' : 'bg-white-400',
                             (error && !option.checked) ? 'animate:pulse border-solid border-2 border-red-500' : '',
                             'max-w-sm rounded overflow-hidden shadow-lg transition ease-in-out delay-150 hover:-translate-y-1  hover:border-solid hover:border-2 hover:border-orange-500 hover:bg-orange-500 duration-300'
@@ -88,8 +102,7 @@
                         </li>
                     </ul>
                 </li>
-
-            </ul>
+            </ol>
             <section class="rounded">
                 <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                     <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-black">Fast Fertig!
@@ -151,49 +164,56 @@ export default {
                             checked: false,
                             logo: '',
                             cost: 100,
-                            description: "Webseite mit Informationen zu einem Thema."
+                            description: "Webseite mit Informationen zu einem Thema.",
+                            duration: 20
                         },
                         {
                             name: 'E-Commerce-Webseite',
                             checked: false,
                             logo: '',
                             cost: 100,
-                            description: "Webseite mit einem Produktkatalog und Warenkorb."
+                            description: "Webseite mit einem Produktkatalog und Warenkorb.",
+                            duration: 10
                         },
                         {
                             name: 'Blog- oder Nachrichten-Webseite',
                             checked: false,
                             logo: '',
                             cost: 100,
-                            description: "Webseite mit integrierten Blog oder Artikelsystem."
+                            description: "Webseite mit integrierten Blog oder Artikelsystem.",
+                            duration: 10
                         },
                         {
                             name: 'Portfolio-Webseite',
                             checked: false,
                             logo: '',
                             cost: 200,
-                            description: "Website zur Darstellung eigener Fähigkeiten und Projekte."
+                            description: "Website zur Darstellung eigener Fähigkeiten und Projekte.",
+                            duration: 10
                         },
                         {
                             name: 'Soziales Netzwerk Webseite',
                             checked: false,
                             logo: '',
                             cost: 200,
-                            description: "Webseite mit Benutzerprofilen und Benutzerinteraktionen."
+                            description: "Webseite mit Benutzerprofilen und Benutzerinteraktionen.",
+                            duration: 10
                         },
                         {
                             name: 'Bildungs- oder gemeinnützige Webseite',
                             checked: false,
                             logo: '',
                             cost: 200,
-                            description: "Webseite mit Informationen zu Bildung oder gemeinnützigen Organisationen."
+                            description: "Webseite mit Informationen zu Bildung oder gemeinnützigen Organisationen.",
+                            duration: 10
                         },
                         {
                             name: 'Unternehmenswebseite',
                             checked: false,
                             logo: '',
                             cost: 74,
-                            description: "Webseite mit Informationen zu einem Unternehmen."
+                            description: "Webseite mit Informationen zu einem Unternehmen.",
+                            duration: 10
                         },
                     ]
                 },
@@ -206,21 +226,24 @@ export default {
                             checked: false,
                             logo: '',
                             cost: 74,
-                            description: "Design an Vorlage anpassen."
+                            description: "Design an Vorlage anpassen.",
+                            duration: 10
                         },
                         {
                             name: 'Benutzerdefiniertes Design',
                             checked: false,
                             logo: '',
                             cost: 74,
-                            description: "Design Erstellung mit Kundem zusammen."
+                            description: "Design Erstellung mit Kundem zusammen.",
+                            duration: 20
                         },
                         {
                             name: 'Premium-Design',
                             checked: false,
                             logo: '',
                             cost: 74,
-                            description: "Komplexes Design mit Animation und innovativen Elementen."
+                            description: "Komplexes Design mit Animation und innovativen Elementen.",
+                            duration: 30
                         }
                     ]
                 },
@@ -233,28 +256,32 @@ export default {
                             checked: false,
                             logo: '',
                             cost: 74,
-                            description: "Benutzer können sich registrieren und anmelden."
+                            description: "Benutzer können sich registrieren und anmelden.",
+                            duration: 5
                         },
                         {
                             name: 'E-Commerce-Funktionalität',
                             checked: false,
                             logo: '',
                             cost: 610,
-                            description: "Produktkatalog, Warenkorb und Zahlungssystem."
+                            description: "Produktkatalog, Warenkorb und Zahlungssystem.",
+                            duration: 10
                         },
                         {
                             name: 'Blog',
                             checked: false,
                             logo: '',
                             cost: 610,
-                            description: "Blog oder Artikelsystem."
+                            description: "Blog oder Artikelsystem.",
+                            duration: 10
                         },
                         {
                             name: 'Forum oder Benutzerkommentare',
                             checked: false,
                             logo: '',
                             cost: 610,
-                            description: "Benutzer können Kommentare schreiben."
+                            description: "Benutzer können Kommentare schreiben.",
+                            duration: 10
 
                         },
                         {
@@ -262,21 +289,24 @@ export default {
                             checked: false,
                             logo: '',
                             cost: 610,
-                            description: "Benutzer können Nachrichten senden."
+                            description: "Benutzer können Nachrichten senden.",
+                            duration: 10
                         },
                         {
                             name: 'Newsletter-Anmeldung',
                             checked: false,
                             logo: '',
                             cost: 32,
-                            description: "Benutzer können sich für Newsletter anmelden."
+                            description: "Benutzer können sich für Newsletter anmelden.",
+                            duration: 10
                         },
                         {
                             name: 'Integrationen mit anderen Diensten',
                             checked: false,
                             logo: '',
                             cost: 32,
-                            description: "Integrationen mit anderen Diensten wie Google Analytics, Google Maps, Facebook, Twitter, Instagram, etc."
+                            description: "Integrationen mit anderen Diensten wie Google Analytics, Google Maps, Facebook, Twitter, Instagram, etc.",
+                            duration: 10
                         },
                     ]
                 },
@@ -289,28 +319,32 @@ export default {
                             checked: false,
                             logo: '',
                             cost: 32,
-                            description: "Der Kunde stellt alle Inhalte zur Verfügung."
+                            description: "Der Kunde stellt alle Inhalte zur Verfügung.",
+                            duration: 1
                         },
                         {
                             name: 'Einige Inhaltserstellung',
                             checked: false,
                             logo: '',
                             cost: 32,
-                            description: "Der Kunde stellt einige Inhalte zur Verfügung."
+                            description: "Der Kunde stellt einige Inhalte zur Verfügung.",
+                            duration: 5
                         },
                         {
                             name: 'Vollständige Inhaltserstellung',
                             checked: false,
                             logo: '',
                             cost: 32,
-                            description: "Der Kunde stellt keine Inhalte zur Verfügung."
+                            description: "Der Kunde stellt keine Inhalte zur Verfügung.",
+                            duration: 15
                         },
                         {
                             name: 'Laufende Inhaltserstellung',
                             checked: false,
                             logo: '',
                             cost: 32,
-                            description: "Wir stellen nachträglich die Inhalte zur Verfügugn."
+                            description: "Wir stellen nachträglich die Inhalte zur Verfügugn.",
+                            duration: 20
                         },
                     ]
                 },
@@ -323,21 +357,24 @@ export default {
                             checked: false,
                             logo: '',
                             cost: 32,
-                            description: "Der Kunde kümmert sich selbst um die Wartung."
+                            description: "Der Kunde kümmert sich selbst um die Wartung.",
+                            duration: 0
                         },
                         {
                             name: 'Monatliche Wartung',
                             checked: false,
                             logo: '',
                             cost: 32,
-                            description: "Wir kümmern uns montalich um die Wartung."
+                            description: "Wir kümmern uns montalich um die Wartung.",
+                            duration: 1
                         },
                         {
                             name: 'Vollständige Wartung',
                             checked: false,
                             logo: '',
                             cost: 32,
-                            description: "Wir kümmern uns um die Wartung."
+                            description: "Wir kümmern uns um die Wartung.",
+                            duration: 15
                         },
                     ]
                 },
@@ -401,7 +438,14 @@ export default {
         },
         closeWarning() {
             this.error = false;
-        }
+        },
+        durationDisplay(step) {
+            let duration = 0;
+            step.options.filter(option => option.checked).forEach(option => {
+                duration += option.duration;
+            });
+            return Math.floor(duration * 0.95) + "-" + Math.floor(duration * 1.05) + " Tage";
+        },
     }
 }
 </script>
