@@ -118,7 +118,7 @@
                                 placeholder="tomileggt@hodne.de" required>
                         </div>
                         <div>
-                            <label for="subject" class="block mb-2 text-sm font-medium text-black-500 ">Betreff</label>
+                            <label for="subject" class="block mb-2 text-sm font-medium text-black-500 ">Betreff </label>
                             <input type="text" id="subject"
                                 class="block p-3 w-full text-sm text-black-500 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500"
                                 placeholder="Wie können wir ihnen helfen?" required>
