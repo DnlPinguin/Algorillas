@@ -1,7 +1,7 @@
 <template>
-    <div class="bg-gray-100 shadow-md rounded-lg mb-8">
+    <div class="bg-gray-100 shadow-md border-solid border-2 rounded-lg mb-8">
         <p class="text-7xl text-orange-700 my-4">{{ display }}{{ suffix }}</p>
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading text-gray-700 mb-4">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading text-gray-500 mb-4">
             {{ name }}
         </h1>
     </div>

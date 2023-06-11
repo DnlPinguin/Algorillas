@@ -18,13 +18,13 @@
                     <div class="relative mb-6 overflow-hidden rounded-lg  bg-cover bg-no-repeat shadow-lg dark:shadow-black/20 bg-[50%]"
                         data-te-ripple-init data-te-ripple-color="light">
                         <img v-bind:src="require('@/assets/images/' + project.image)" class="w-full" />
-                        <a href="https://chartermainz.de">
+                        <a :href="project.url">
                             <div
                                 class="mask absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,0.2)]">
                             </div>
                         </a>
                     </div>
-                    <a class="flex justify-between" href="https://chartermainz.de">
+                    <a class="flex justify-between" :href="project.url">
                         <h2 class="mb-4 text-lg font-bold">{{ project.name }}</h2>
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2">
@@ -99,25 +99,30 @@ export default {
                     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
                     image: "Projects/CharterMainz.png",
                     icon: "https://mdbcdn.b-cdn.net/img/new/standard/city/044.jpg",
-                    shortDescription: "Heißer Scheiß."
+                    shortDescription: "Heißer Scheiß.",
+                    url: "https://chartermainz.de"
                 }, {
                     name: "SchokoRadeln",
                     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
                     image: "Projects/SchokoRadeln.png",
                     icon: "https://mdbcdn.b-cdn.net/img/new/standard/city/044.jpg",
-                    shortDescription: "Mal was Süßes."
+                    shortDescription: "Mal was Süßes.",
+                    url: "https://schokoradeln.de"
+
                 }, {
                     name: "Muskelkater",
                     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
                     image: "logo-placeholder.jpg",
                     icon: "https://mdbcdn.b-cdn.net/img/new/standard/city/044.jpg",
-                    shortDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+                    shortDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+                    url: null
                 }, {
                     name: "Halva Invest",
                     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
                     image: "logo-placeholder.jpg",
                     icon: "https://mdbcdn.b-cdn.net/img/new/standard/city/044.jpg",
-                    shortDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+                    shortDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+                    url: null
                 }
             ],
         };
