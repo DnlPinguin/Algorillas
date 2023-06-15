@@ -1,14 +1,15 @@
 <template>
-    <header class="pl-10  pr-10 flex justify-between items-center bg-neutral-950">
+    <header class="pl-10  pr-10 flex justify-between items-center bg-neutral-dark" id="navigation-header">
         <div class="container-xl flex justify-between items-center p-3 w-full">
-            <div class="flex justify-between items-center">
+
+            <RouterLink to="/" class="flex justify-between items-center">
                 <div class="wrapper">
                     <div class="animation-container algorillas-logo">
-                        <img src="@/assets/logo.svg">
+                        <img src="@/assets/logo-.svg">
                     </div>
                 </div>
-                <h1 class="ms-5">Algorillas</h1>
-            </div>
+                <h1 class="ms-2 text-primary logo-font">Algorillas</h1>
+            </RouterLink>
 
             <nav>
                 <nav class="[&>*]:p-4 text-white">
@@ -73,6 +74,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.logo-font {
+    font-family: 'Kirvy';
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
 nav a.router-link-exact-active {
     color: theme('colors.orange.500')
 }
@@ -118,6 +125,6 @@ nav a.router-link-exact-active.nav-button {
 }
 
 .algorillas-logo {
-    width: 50px;
+    width: 25px;
 }
 </style>

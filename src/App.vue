@@ -9,7 +9,7 @@
 </template>
 
 <script>
-
+import AOS from 'aos'
 import NavigationHeader from './components/NavBar/NavigationHeader.vue';
 import FooterSection from './components/Footer/FooterSection.vue';
 
@@ -21,6 +21,9 @@ export default {
     return {
       menuActive: false
     }
+  },
+  mounted() {
+    AOS.init()
   },
   methods: {
     toggleMenu() {
