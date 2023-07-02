@@ -1,10 +1,10 @@
 algorillas.dev {
-    # encode gzip
+    encode gzip
         
-        # root * /usr/share/caddy/html
-        # try_files {path} /index.html
-        # file_server
-    Coming Soon ...
+    root * /usr/share/caddy/html
+    try_files {path} /index.html
+    file_server
+    
 }
 
 
