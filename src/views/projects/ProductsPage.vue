@@ -1,11 +1,11 @@
 <template>
     <h1>
-        Blogs
+        Products
     </h1>
 </template>
 <script>
 export default {
-    name: "BlogPage"
+    name: "ProductsPage"
 }
 </script>
 <style scoped></style>

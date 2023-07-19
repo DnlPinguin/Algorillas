@@ -5,7 +5,21 @@ import './index.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+/* import specific icons */
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 
 
 
-createApp(App).use(router, AOS).mount('#app')
+library.add(faUserSecret)
+
+
+createApp(App)
+.use(router, AOS)
+.component('font-awesome-icon', FontAwesomeIcon)
+.mount('#app')

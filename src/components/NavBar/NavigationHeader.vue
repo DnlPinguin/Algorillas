@@ -1,6 +1,6 @@
 <template>
-    <header class="pl-10  pr-10 flex justify-between items-center bg-neutral-dark" id="navigation-header">
-        <div class="container-xl flex justify-between items-center p-3 w-full">
+    <header class="pl-10 pr-10 flex justify-between items-center bg-neutral-dark" id="navigation-header">
+        <div class="container-xl flex justify-between items-center w-full navi">
 
             <RouterLink to="/" class="flex justify-between items-center">
                 <div class="wrapper">
@@ -11,68 +11,129 @@
                 <h1 class="ms-2 text-primary logo-font">Algorillas</h1>
             </RouterLink>
 
-            <nav>
-                <nav class="[&>*]:p-4 text-white">
-                    <RouterLink to="/" class="animated-underline  hover:text-orange-500">Über Uns</RouterLink>
-                    <RouterLink to="/service" class="animated-underline  hover:text-orange-500">Services</RouterLink>
-                    <RouterLink to="/projects" class="animated-underline hover:text-orange-500">Projekte</RouterLink>
-                    <RouterLink to="/team" class="animated-underline hover:text-orange-500">Team</RouterLink>
-                    <RouterLink to="/contact" class="animated-underline hover:text-orange-500">Kontakt</RouterLink>
-                    <RouterLink to="/configurator" class="btn btn-orange-500 nav-button ms-3">Projekt starten
+            <nav class="flex">
+                <nav class="[&>*]:p-4 text-white flex">
+
+
+                    <div class="router-link-wrapper"  @mouseover="subNav = 'services'" @mouseleave="subNav = ''">
+                        <RouterLink to="/services" class="about-us hover:text-orange-500 router-link">
+                            Services
+                        </RouterLink>
+                        
+                        <div v-if="subNav == 'services'">
+                             <ServicesSubNav></ServicesSubNav>
+                        </div>
+                    </div>
+                    
+
+                    <div class="router-link-wrapper"  @mouseover="subNav = 'projects'" @mouseleave="subNav = ''">
+                        <RouterLink to="/projects" class="about-us hover:text-orange-500 router-link">
+                            Projects
+                        </RouterLink>
+                        
+                        <div v-if="subNav == 'projects'">
+                             <ProjectsSubNav></ProjectsSubNav>
+                        </div>
+                    </div>
+
+
+                    <div class="router-link-wrapper"  @mouseover="subNav = 'technologies'" @mouseleave="subNav = ''">
+                        <RouterLink to="/technologies" class="about-us hover:text-orange-500 router-link">
+                            Technologies
+                        </RouterLink>
+                        
+                        <div v-if="subNav == 'technologies'">
+                             <TechnologiesSubNav></TechnologiesSubNav>
+                        </div>
+                    </div>
+
+
+                    <div class="router-link-wrapper"  @mouseover="subNav = 'team'" @mouseleave="subNav = ''">
+                        <RouterLink to="/team" class="about-us hover:text-orange-500 router-link">
+                            Team
+                        </RouterLink>
+                        
+                        <div v-if="subNav == 'team'">
+                             <TeamSubNav></TeamSubNav>
+                        </div>
+                    </div>
+
+
+                    <RouterLink to="/contact" class="btn btn-orange-500 nav-button ms-3">Kontakt
                     </RouterLink>
                 </nav>
             </nav>
 
         </div>
+
+        <div class="sub-nav-background" v-if="subNav != ''">
+        
+        </div>
     </header>
+
+    
 </template>
 
 <script>
+
+import ServicesSubNav from './sub-navs/ServicesSubNav.vue';
+import ProjectsSubNav from './sub-navs/ProjectsSubNav.vue';
+import TechnologiesSubNav from './sub-navs/TechnologiesSubNav.vue';
+import TeamSubNav from './sub-navs/TeamSubNav.vue';
+
+
 export default {
     name: 'NavigationHeader',
     components: {
+        ServicesSubNav,
+        ProjectsSubNav,
+        TechnologiesSubNav,
+        TeamSubNav,
     },
     props: {
         language: String,
     },
     data: () => ({
-        menuOpen: false,
-        text: {
-            "DE": {
-                'about': 'Wir',
-                'projects': 'Projekte',
-                'team': 'Team',
-                'contact': 'Kontakt'
-            }, "EN": {
-                'about': 'About us',
-                'projects': 'Projects',
-                'team': 'Team',
-                'contact': 'Contact'
-            }
-        }
+        subNav: '',
     }),
     methods: {
-        toggle() {
-            this.menuOpen = !this.menuOpen
-        },
-        closeMenu() {
-            this.menuOpen = false
-        },
-        switchLanguage(newLang) {
-            this.$emit('switch-language', newLang)
-        },
-        scrollToTarget() {
-            const targetElement = document.getElementById(this.targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
     }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+
+.router-link-wrapper {
+    height: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub-nav-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+
+}
+
+.navi {
+    z-index: 12;
+}
+
+.router-link a {
+    position: static;
+}
+
 .logo-font {
     font-family: 'Kirvy';
     font-size: 1.5rem;
@@ -84,7 +145,6 @@ nav a.router-link-exact-active {
 }
 
 .animated-underline {
-    position: relative;
     display: inline-block;
 }
 
