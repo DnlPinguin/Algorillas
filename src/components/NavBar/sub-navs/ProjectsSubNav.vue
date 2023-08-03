@@ -32,10 +32,10 @@ export default {
     height: 400px;
     width: 700px;
     
-    background-color: beige;
+    background-color: green;
     position: absolute;
-    top: 50px!important;
-    right: 100px!important;
+    top: 80px!important;
+    left: -187px!important;
     border-radius: 10px;
 }
 

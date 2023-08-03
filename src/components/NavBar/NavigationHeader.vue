@@ -1,6 +1,11 @@
 <template>
-    <header class="pl-10 pr-10 flex justify-between items-center bg-neutral-dark" id="navigation-header">
-        <div class="container-xl flex justify-between items-center w-full navi">
+
+
+
+    <header class="w-screen flex justify-between items-center bg-neutral-dark">
+
+
+        <div class="container mx-auto flex justify-between items-center w-full navi">
 
             <RouterLink to="/" class="flex justify-between items-center">
                 <div class="wrapper">
@@ -11,8 +16,7 @@
                 <h1 class="ms-2 text-primary logo-font">Algorillas</h1>
             </RouterLink>
 
-            <nav class="flex">
-                <nav class="[&>*]:p-4 text-white flex">
+                <nav class="[&>*]:p-4 text-white flex items-center justify-center h-full">
 
 
                     <div class="router-link-wrapper"  @mouseover="subNav = 'services'" @mouseleave="subNav = ''">
@@ -59,10 +63,11 @@
                     </div>
 
 
-                    <RouterLink to="/contact" class="btn btn-orange-500 nav-button ms-3">Kontakt
+                    <RouterLink to="/contact" class="nav-button contact-button ms-3 router-link">
+                        Let's Talk
                     </RouterLink>
+
                 </nav>
-            </nav>
 
         </div>
 
@@ -113,6 +118,8 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-right: 30px;
+    position: relative;
 }
 
 .sub-nav-background {
@@ -128,10 +135,14 @@ export default {
 
 .navi {
     z-index: 12;
+    height: 80px;
 }
 
-.router-link a {
+.router-link {
     position: static;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    font-size: 18px;
 }
 
 .logo-font {
@@ -170,16 +181,20 @@ nav a.router-link-exact-active {
     @apply font-bold py-2 px-4 rounded;
 }
 
-.btn-orange-500 {
-    @apply bg-orange-500 text-white;
-}
-
-.btn-orange-500:hover {
-    @apply bg-orange-600;
-}
 
 nav a.router-link-exact-active.nav-button {
     color: theme('colors.white')
+}
+
+.contact-button {
+    background: rgb(255,136,0);
+    background: radial-gradient(circle, rgba(255,136,0,1) 0%, rgba(200,107,0,1) 100%);
+    border-radius: 20px;
+    width: 120px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .algorillas-logo {

@@ -34,9 +34,14 @@ export default {
     
     background-color: beige;
     position: absolute;
-    top: 50px!important;
-    right: 100px!important;
+    top: 80px!important;
+    left: -474px!important;
     border-radius: 10px;
+}
+
+
+#wave-1 {
+    fill: red!important;
 }
 
 </style>
