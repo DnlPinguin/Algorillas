@@ -9,7 +9,7 @@
 </template>
 
 <script>
-
+import AOS from 'aos'
 import NavigationHeader from './components/NavBar/NavigationHeader.vue';
 import FooterSection from './components/Footer/FooterSection.vue';
 
@@ -21,6 +21,9 @@ export default {
     return {
       menuActive: false
     }
+  },
+  mounted() {
+    AOS.init()
   },
   methods: {
     toggleMenu() {
@@ -35,7 +38,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(90deg, rgb(11, 11, 14) 0%, rgb(19, 10, 2) 100%);
   color: white;
   font-family: 'Inter', sans-serif;
 
@@ -133,6 +135,5 @@ textarea {
 
 main {
   flex-grow: 1;
-  margin-top: 4rem;
 }
 </style>
