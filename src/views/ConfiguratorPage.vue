@@ -83,7 +83,7 @@
                                 durationDisplay(step) }}</span>
                     </h3>
                     <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                        Fertigstellung am </time>
+                        Fertigstellung am {{ calculateDeadlineDate(idx) }}</time>
                     <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 my-20">
                         <li v-for="option in filteredOptions(idx + 1)" :key="option.name" :class="[
                             option.checked ? 'bg-orange-500 border-solid border-2 border-orange-500' : 'bg-white-400',
@@ -444,8 +444,19 @@ export default {
             step.options.filter(option => option.checked).forEach(option => {
                 duration += option.duration;
             });
-            return Math.floor(duration * 0.95) + "-" + Math.floor(duration * 1.05) + " Tage";
+            return duration + " Tage";
+            // return Math.floor(duration * 0.95) + "-" + Math.floor(duration * 1.05) + " Tage";
         },
+        calculateDeadlineDate(idx) {
+            let duration = 0;
+            this.steps[idx].options.filter(option => option.checked).forEach(option => {
+                duration += option.duration;
+            });
+            let date = new Date();
+            date.setDate(date.getDate() + duration);
+            return date.toLocaleDateString();
+        },
+
     }
 }
 </script>

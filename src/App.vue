@@ -35,8 +35,9 @@ html,
 body {
   margin: 0;
   padding: 0;
+  background: linear-gradient(90deg, rgb(11, 11, 14) 0%, rgb(19, 10, 2) 100%);
+  color: white;
   font-family: 'Inter', sans-serif;
-  overscroll-behavior: none;
 
 }
 
@@ -59,6 +60,10 @@ body::-webkit-scrollbar-thumb {
   background-color: #ff8c00;
 }
 
+header {
+  flex-shrink: 0;
+  font-size: 18px;
+}
 
 h1 {
   font-weight: 700;
@@ -122,5 +127,12 @@ textarea {
 .contact-button:hover {
   background-color: #ff8c00;
   color: black;
+}
+
+
+
+main {
+  flex-grow: 1;
+  margin-top: 4rem;
 }
 </style>

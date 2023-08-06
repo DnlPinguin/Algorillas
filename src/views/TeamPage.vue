@@ -82,7 +82,7 @@ export default {
                     profilePicture: "TomiProfil.jpeg",
                     jobRole: "Backend Developer",
                     description:
-                        "",
+                        "nur am rumwuseln",
                     socialMedia: {
                         linkedIn: "https://www.linkedin.com/in/daniel-kowalski-1b1b3b1b3/",
                         github: "",
