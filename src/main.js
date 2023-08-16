@@ -12,11 +12,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { faUserSecret, faObjectGroup, faMagnifyingGlassChart, faDisplay, faMobileScreenButton, faServer, faSitemap, faScrewdriverWrench, faListCheck, faNewspaper, faHandshake, faCopyright, faBuildingUser, faMicrochip, faDiagramProject, faPeopleGroup } from '@fortawesome/free-solid-svg-icons'
 
 
 
-library.add(faUserSecret)
+library.add(faUserSecret, faObjectGroup, faMagnifyingGlassChart, faDisplay, faMobileScreenButton, faServer, faSitemap, faScrewdriverWrench, faListCheck, faNewspaper, faHandshake, faCopyright, faBuildingUser, faMicrochip, faDiagramProject, faPeopleGroup)
 
 
 createApp(App)

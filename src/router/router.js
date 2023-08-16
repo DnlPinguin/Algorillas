@@ -50,12 +50,10 @@ const routes = [
     { path: '/projects/products', component: ProductsPage },
     { path: '/projects/references', component: ReferencesPage },
 
-
-    { path: '/technologies/members', component: ServerPage },
-    { path: '/technologies/philosophie', component: FrontendPage },
-    { path: '/technologies/way-of-working', component: InfrastructurePage },
-    { path: '/technologies/way-of-working', component: MobilePage },
-
+    { path: '/technologies/server', component: ServerPage },
+    { path: '/technologies/frontend', component: FrontendPage },
+    { path: '/technologies/infrastructure', component: InfrastructurePage },
+    { path: '/technologies/mobile', component: MobilePage },
 
     { path: '/team/members', component: MembersPage },
     { path: '/team/philosophie', component: PhilosophiePage },

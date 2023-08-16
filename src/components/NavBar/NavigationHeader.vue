@@ -19,7 +19,7 @@
                 <nav class="[&>*]:p-4 text-white flex items-center justify-center h-full">
 
 
-                    <div class="router-link-wrapper"  @mouseover="subNav = 'services'" @mouseleave="subNav = ''">
+                    <div class="router-link-wrapper hover:text-orange-500"  @mouseover="subNav = 'services'" @mouseleave="subNav = ''">
                         <RouterLink to="/services" class="about-us hover:text-orange-500 router-link">
                             Services
                         </RouterLink>
@@ -30,8 +30,8 @@
                     </div>
                     
 
-                    <div class="router-link-wrapper"  @mouseover="subNav = 'projects'" @mouseleave="subNav = ''">
-                        <RouterLink to="/projects" class="about-us hover:text-orange-500 router-link">
+                    <div class="router-link-wrapper hover:text-orange-500"  @mouseover="subNav = 'projects'" @mouseleave="subNav = ''">
+                        <RouterLink to="/projects" class="about-us router-link">
                             Projects
                         </RouterLink>
                         
@@ -41,7 +41,7 @@
                     </div>
 
 
-                    <div class="router-link-wrapper"  @mouseover="subNav = 'technologies'" @mouseleave="subNav = ''">
+                    <div class="router-link-wrapper hover:text-orange-500"  @mouseover="subNav = 'technologies'" @mouseleave="subNav = ''">
                         <RouterLink to="/technologies" class="about-us hover:text-orange-500 router-link">
                             Technologies
                         </RouterLink>
@@ -52,7 +52,7 @@
                     </div>
 
 
-                    <div class="router-link-wrapper"  @mouseover="subNav = 'team'" @mouseleave="subNav = ''">
+                    <div class="router-link-wrapper hover:text-orange-500"  @mouseover="subNav = 'team'" @mouseleave="subNav = ''">
                         <RouterLink to="/team" class="about-us hover:text-orange-500 router-link">
                             Team
                         </RouterLink>
@@ -97,6 +97,11 @@ export default {
     },
     props: {
         language: String,
+    },
+    watch:{
+        $route (){
+            this.subNav = '';
+        }
     },
     data: () => ({
         subNav: '',

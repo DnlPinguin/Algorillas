@@ -3,25 +3,25 @@
 
         <div class="flex align-center justify-start ms-6 mt-6">
             <div class="sub-nav-icon">
-                <font-awesome-icon icon="fa-solid fa-user-secret" />
+                <font-awesome-icon icon="fa-solid fa-screwdriver-wrench" />
 
             </div>
 
             <div class="flex flex-col align-center justify-start ms-6">
 
                 <h1 class="sub-nav-headline">Services</h1>
-                <p class="sub-nav-description">Short description of the service.</p>
+                <p class="sub-nav-description">Short description of the services.</p>
             </div>
 
         </div>
 
-        <div class="grid grid-cols-3 gap-4 mt-10">
+        <div class="grid grid-cols-3 gap-x-6 gap-y-16 mt-24">
 
 
-            <div class="flex flex-col justify-center items-center">
+            <div class="flex flex-col justify-center items-center cursor-pointer navigation-module"  v-on:click="this.$router.push('/services/ui-ux-branding')">
 
                 <div class="module-icon">
-                    <font-awesome-icon icon="fa-solid fa-user-secret" />
+                    <font-awesome-icon icon="fa-solid fa-object-group" />
                 </div>
 
                 <h3 class="module-headline">
@@ -29,110 +29,98 @@
                 </h3>
 
                 <p class="module-description">
-                    Alles rund um das UI und UX Design und Branding von ihrer Firma
+                    Alles rund um UI und UX
                 </p>
 
             </div>
 
 
 
-            <div class="flex flex-col justify-center items-center">
+            <div class="flex flex-col justify-center items-center cursor-pointer navigation-module" v-on:click="this.$router.push('/services/seo')">
 
                 <div class="module-icon">
-                    <font-awesome-icon icon="fa-solid fa-user-secret" />
+                    <font-awesome-icon icon="fa-solid fa-magnifying-glass-chart" />
                 </div>
 
                 <h3 class="module-headline">
-                    UI/UX & Branding
+                    SEO
                 </h3>
 
                 <p class="module-description">
-                    Alles rund um das UI und UX Design und Branding von ihrer Firma
+                    Alles rund um SEO, SEA, ASO
                 </p>
 
             </div>
 
 
 
-            <div class="flex flex-col justify-center items-center">
+            <div class="flex flex-col justify-center items-center cursor-pointer navigation-module" v-on:click="this.$router.push('/services/web-apps')">
 
                 <div class="module-icon">
-                    <font-awesome-icon icon="fa-solid fa-user-secret" />
+                    <font-awesome-icon icon="fa-solid fa-display" />
                 </div>
 
                 <h3 class="module-headline">
-                    UI/UX & Branding
+                    Web Apps
                 </h3>
 
                 <p class="module-description">
-                    Alles rund um das UI und UX Design und Branding von ihrer Firma
+                    Alles rund um Web Apps
                 </p>
 
             </div>
 
 
-            <div class="flex flex-col justify-center items-center">
+            <div class="flex flex-col justify-center items-center cursor-pointer navigation-module" v-on:click="this.$router.push('/services/mobile-apps')">
 
                 <div class="module-icon">
-                    <font-awesome-icon icon="fa-solid fa-user-secret" />
+                    <font-awesome-icon icon="fa-solid fa-mobile-screen-button" />
                 </div>
 
                 <h3 class="module-headline">
-                    UI/UX & Branding
+                    Mobile Apps
                 </h3>
 
                 <p class="module-description">
-                    Alles rund um das UI und UX Design und Branding von ihrer Firma
+                    Alles rund um mobile Apps
                 </p>
 
             </div>
 
 
-            <div class="flex flex-col justify-center items-center">
+            <div class="flex flex-col justify-center items-center cursor-pointer navigation-module" v-on:click="this.$router.push('/services/backend')">
 
                 <div class="module-icon">
-                    <font-awesome-icon icon="fa-solid fa-user-secret" />
+                    <font-awesome-icon icon="fa-solid fa-server" />
                 </div>
 
                 <h3 class="module-headline">
-                    UI/UX & Branding
+                    Backend
                 </h3>
 
                 <p class="module-description">
-                    Alles rund um das UI und UX Design und Branding von ihrer Firma
+                    Alles rund um das Backend
                 </p>
 
             </div>
 
 
-            <div class="flex flex-col justify-center items-center">
+            <div class="flex flex-col justify-center items-center cursor-pointer navigation-module" v-on:click="this.$router.push('/services/architecture')">
 
                 <div class="module-icon">
-                    <font-awesome-icon icon="fa-solid fa-user-secret" />
+                    <font-awesome-icon icon="fa-solid fa-sitemap" />
                 </div>
 
                 <h3 class="module-headline">
-                    UI/UX & Branding
+                    Architecture
                 </h3>
 
                 <p class="module-description">
-                    Alles rund um das UI und UX Design und Branding von ihrer Firma
+                    Alles rund um die Infrastruktur
                 </p>
 
             </div>
 
-
-            ui-ux-branding
-
-            seo
-
-            mobile-apps
-
-            web-apps
-
-            backend
-
-            server-architecture
         </div>
     </div>
 </template>
@@ -156,14 +144,26 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.navigation-module:hover .module-description {
+    color: #8c8c8c;
+}
+
+.navigation-module:hover .module-headline {
+    color: #8c8c8c;
+}
+
+.navigation-module:hover .module-icon {
+    color: #ffb561;
+}
 .module-description {
-    font-size: 18px;
+    font-size: 14px;
     color: #626262;
     text-align: center;
 }
 
 .module-headline {
-    font-size: 20px;
+    font-size: 16px;
     color: #626262;
     font-weight: bold;
 }
@@ -182,7 +182,7 @@ export default {
 }
 
 .module-icon {
-    font-size: 36px;
+    font-size: 30px;
     color: #ff8800;
 }
 
@@ -195,6 +195,7 @@ export default {
     align-items: center;
     justify-content: center;
     border-radius: 100px;
+    color: white;
 }
 
 .waves-svg-backgroud {
@@ -209,9 +210,12 @@ export default {
 
     position: absolute;
     top: 80px !important;
-    left: -63px;
+    left: -264px;
     border-radius: 10px;
     background-color: white;
     background-image: url('~@/assets/images/svg/wave-haikei.svg');
+
+    box-shadow: 0px 14px 40px 5px rgba(255,136,0,0.3);
+
 }
 </style>
