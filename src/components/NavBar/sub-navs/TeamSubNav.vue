@@ -15,24 +15,27 @@
 
         </div>
 
-        <div class="grid grid-cols-2 gap-6 mt-12">
+        <div class="grid grid-cols-3 gap-6 mt-20">
 
 
 
+            <div class="flex flex-col justify-center items-center cursor-pointer navigation-module p-8" v-on:click="this.$router.push('/team/members')">
 
-            <div class="flex flex-row justify-center items-center cursor-pointer navigation-module p-8" v-on:click="this.$router.push('/projects/blog')">
+               
 
-                <div class="module-icon">
-                    <font-awesome-icon icon="fa-solid fa-newspaper" />
-                </div>
+                <div class="flex flex-col justify-start items-start ms-4">
 
-                <div class="flex flex-col justify-center items-start ms-4">
-                    <h3 class="module-headline">
-                        Blog
+                    <div class="module-icon">
+                        <font-awesome-icon icon="fa-solid fa-people-roof" />
+                    </div>
+
+                    <h3 class="module-headline mt-3">
+                        Members
                     </h3>
 
-                    <p class="module-description">
-                        Alles rund um die Infrastruktur. Etwas länge beschreibung Alles rund um die Infrastruktur.
+                    <p class="module-description mt-3">
+                        How we collaborate. Längerer Text on how we collaborate etc. Sollten alle gleich lang sein
+
                     </p>
                 </div>
 
@@ -40,64 +43,62 @@
 
 
 
+            <div class="flex flex-col justify-center items-center cursor-pointer navigation-module p-8" v-on:click="this.$router.push('/team/way-of-working')">
 
-            <div class="flex flex-row justify-center items-center cursor-pointer navigation-module p-8" v-on:click="this.$router.push('/projects/open-source')">
-
-                <div class="module-icon">
-                    <font-awesome-icon icon="fa-solid fa-handshake" />
-                </div>
-
-                <div class="flex flex-col justify-center items-start ms-4">
-                    <h3 class="module-headline">
-                        Open Source
-                    </h3>
-
-                    <p class="module-description">
-                        Alles rund um die Infrastruktur. Etwas länge beschreibung Alles rund um die Infrastruktur.
-                    </p>
-                </div>
-
-            </div>
-
-
-
-
-            <div class="flex flex-row justify-center items-center cursor-pointer navigation-module p-8" v-on:click="this.$router.push('/projects/products')">
-
-                <div class="module-icon">
-                    <font-awesome-icon icon="fa-solid fa-copyright" />
-                </div>
-
-                <div class="flex flex-col justify-center items-start ms-4">
-                    <h3 class="module-headline">
-                        Products
-                    </h3>
-
-                    <p class="module-description">
-                        Alles rund um die Infrastruktur. Etwas länge beschreibung Alles rund um die Infrastruktur.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="flex flex-row justify-center items-center cursor-pointer navigation-module p-8" v-on:click="this.$router.push('/projects/references')">
-
-                <div class="module-icon">
-                    <font-awesome-icon icon="fa-solid fa-building-user" />
-                </div>
-
-                <div class="flex flex-col justify-center items-start ms-4">
-                    <h3 class="module-headline">
-                        References
-                    </h3>
-
-                    <p class="module-description">
-                        Alles rund um die Infrastruktur. Etwas länge beschreibung Alles rund um die Infrastruktur.
-                    </p>
-                </div>
                 
+
+                <div class="flex flex-col justify-start items-start ms-4">
+
+                    <div class="module-icon">
+                    <font-awesome-icon icon="fa-solid fa-code-branch" />
+                </div>
+
+
+                    <h3 class="module-headline mt-3">
+                        Way of Working
+                    </h3>
+
+                    <p class="module-description mt-3">
+                        How we collaborate. Längerer Text on how we collaborate etc. Sollten alle gleich lang sein
+                    </p>
+                </div>
+
             </div>
+
+
+
+
+            <div class="flex flex-col justify-center items-center cursor-pointer navigation-module p-8" v-on:click="this.$router.push('/team/philosophie')">
+
+                
+
+                <div class="flex flex-col justify-start items-start ms-4">
+
+                    <div class="module-icon">
+                        <font-awesome-icon icon="fa-solid fa-brain" />
+                    </div>
+
+                    <h3 class="module-headline mt-3">
+                        Philosophie
+                    </h3>
+
+                    <p class="module-description mt-3">
+                        How we collaborate. Längerer Text on how we collaborate etc. Sollten alle gleich lang sein
+
+                    </p>
+                </div>
+
+            </div>
+
+
+
+
+
+
+            
+
+
+
 
         </div>
     </div>
@@ -161,6 +162,16 @@ export default {
 .module-icon {
     font-size: 40px;
     color: #ff8800;
+    filter: box-shadow(5px 5px 10px #000);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+
+    -webkit-box-shadow: 0px 9px 21px -11px rgba(0,0,0,0.43); 
+    box-shadow: 0px 9px 21px -11px rgba(0,0,0,0.43);
 }
 
 .sub-nav-icon {

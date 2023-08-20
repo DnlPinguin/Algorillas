@@ -1,8 +1,6 @@
 <template>
 
-
-
-    <header class="w-screen flex justify-between items-center bg-neutral-dark">
+    <header class="w-screen flex justify-between items-center bg-neutral-dark" :class="{headerTransparent: scrollPosition < 80, headerSticky: scrollPosition >= 80}">
 
 
         <div class="container mx-auto flex justify-between items-center w-full navi">
@@ -95,24 +93,69 @@ export default {
         TechnologiesSubNav,
         TeamSubNav,
     },
+    mounted() {
+        window.addEventListener('scroll', this.updateScroll);
+    },
     props: {
-        language: String,
     },
     watch:{
         $route (){
             this.subNav = '';
         }
     },
+
     data: () => ({
         subNav: '',
+        scrollPosition: null
     }),
     methods: {
+    updateScroll() {
+      this.scrollPosition = window.scrollY
+      console.log("sccc")
+      console.log(this.scrollPosition)
     }
+  },
+  destroy() {
+  window.removeEventListener('scroll', this.updateScroll)
+},
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+@keyframes fadeInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+header {
+    z-index: 10000;
+
+}
+.headerTransparent {
+    position: absolute;
+    background: transparent;
+}
+
+.headerSticky {
+    position: fixed;
+    background: white;
+    animation: fadeInFromTop 0.5s forwards;
+}
+
+.headerSticky a {
+    color: black;
+}
+
 
 
 .router-link-wrapper {
