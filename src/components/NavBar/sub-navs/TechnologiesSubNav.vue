@@ -20,7 +20,7 @@
 
 
 
-            <div class="flex flex-row justify-center items-start cursor-pointer navigation-module p-8" v-on:click="this.$router.push('/projects/blog')">
+            <div class="flex flex-row justify-center items-start cursor-pointer navigation-module p-8" v-on:click="this.$router.push('/technologies/server')">
 
                 <div class="module-icon">
                     <font-awesome-icon icon="fa-solid fa-server" />
@@ -53,7 +53,7 @@
 
 
 
-            <div class="flex flex-row justify-center items-start cursor-pointer navigation-module p-8" v-on:click="this.$router.push('/projects/open-source')">
+            <div class="flex flex-row justify-center items-start cursor-pointer navigation-module p-8" v-on:click="this.$router.push('/technologies/frontend')">
 
                 <div class="module-icon">
                     <font-awesome-icon icon="fa-solid fa-object-group" />
@@ -86,7 +86,7 @@
 
 
 
-            <div class="flex flex-row justify-center items-start cursor-pointer navigation-module p-8" v-on:click="this.$router.push('/projects/products')">
+            <div class="flex flex-row justify-center items-start cursor-pointer navigation-module p-8" v-on:click="this.$router.push('/technologies/infrastructure')">
 
                 <div class="module-icon">
                     <font-awesome-icon icon="fa-solid fa-diagram-project" />
@@ -120,7 +120,7 @@
             </div>
 
 
-            <div class="flex flex-row justify-center items-start cursor-pointer navigation-module p-8" v-on:click="this.$router.push('/projects/references')">
+            <div class="flex flex-row justify-center items-start cursor-pointer navigation-module p-8" v-on:click="this.$router.push('/technologies/mobile')">
 
                 <div class="module-icon">
                     <font-awesome-icon icon="fa-solid fa-mobile-screen-button" />

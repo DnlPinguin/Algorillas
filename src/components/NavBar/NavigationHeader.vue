@@ -5,16 +5,28 @@
 
         <div class="container mx-auto flex justify-between items-center w-full navi">
 
-            <RouterLink to="/" class="flex justify-between items-center">
-                <div class="wrapper">
-                    <div class="animation-container algorillas-logo">
-                        <img src="@/assets/logo-.svg">
+                <RouterLink to="/" class="flex justify-between items-center ms-2">
+                    <div class="wrapper">
+                        <div class="animation-container algorillas-logo">
+                            <img src="@/assets/logo-.svg">
+                        </div>
                     </div>
-                </div>
-                <h1 class="ms-2 text-primary logo-font">Algorillas</h1>
-            </RouterLink>
+                    <h1 class="ms-2 text-primary logo-font">Algorillas</h1>
+                </RouterLink>
 
-                <nav class="[&>*]:p-4 text-white flex items-center justify-center h-full">
+                <nav class="flex lg:hidden  items-center justify-center me-2">
+                    <button v-on:click="showMobileNav = !showMobileNav">
+                        <div class="mobile-nav-icon">
+                            <font-awesome-icon icon="fa-solid fa-bars" />
+                        </div>
+                    </button>
+
+                    <div v-if="showMobileNav" class="mobile-nav">
+                        <MobileNav></MobileNav>
+                    </div>
+                </nav>
+
+                <nav class="[&>*]:p-4 text-white items-center justify-center h-full hidden lg:flex me-2">
 
 
                     <div class="router-link-wrapper hover:text-orange-500"  @mouseover="subNav = 'services'" @mouseleave="subNav = ''">
@@ -83,6 +95,7 @@ import ServicesSubNav from './sub-navs/ServicesSubNav.vue';
 import ProjectsSubNav from './sub-navs/ProjectsSubNav.vue';
 import TechnologiesSubNav from './sub-navs/TechnologiesSubNav.vue';
 import TeamSubNav from './sub-navs/TeamSubNav.vue';
+import MobileNav from './MobileNav.vue';
 
 
 export default {
@@ -92,6 +105,7 @@ export default {
         ProjectsSubNav,
         TechnologiesSubNav,
         TeamSubNav,
+        MobileNav
     },
     mounted() {
         window.addEventListener('scroll', this.updateScroll);
@@ -101,18 +115,18 @@ export default {
     watch:{
         $route (){
             this.subNav = '';
+            this.showMobileNav = false; 
         }
     },
 
     data: () => ({
         subNav: '',
-        scrollPosition: null
+        scrollPosition: null,
+        showMobileNav: false
     }),
     methods: {
     updateScroll() {
       this.scrollPosition = window.scrollY
-      console.log("sccc")
-      console.log(this.scrollPosition)
     }
   },
   destroy() {
@@ -123,6 +137,28 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.mobile-nav-icon {
+    font-size: 22px;
+    background-color: rgb(58, 58, 58);
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-nav {
+    height: 80vh;
+    width: 80vw;
+    background-color: rgb(58, 58, 58);
+    position: fixed;
+    right: 10vw;
+    top: 10vh;
+    border-radius: 20px;
+    opacity: 0.99;
+}
 
 @keyframes fadeInFromTop {
   0% {

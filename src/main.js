@@ -12,11 +12,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faUserSecret, faObjectGroup, faMagnifyingGlassChart, faDisplay, faMobileScreenButton, faServer, faSitemap, faScrewdriverWrench, faListCheck, faNewspaper, faHandshake, faCopyright, faBuildingUser, faMicrochip, faDiagramProject, faPeopleGroup, faBrain, faPeopleRoof, faCodeBranch } from '@fortawesome/free-solid-svg-icons'
+import { faUserSecret, faObjectGroup, faMagnifyingGlassChart, faDisplay, faMobileScreenButton, faServer, faSitemap, faScrewdriverWrench, faListCheck, faNewspaper, faHandshake, faCopyright, faBuildingUser, faMicrochip, faDiagramProject, faPeopleGroup, faBrain, faPeopleRoof, faCodeBranch, faBars } from '@fortawesome/free-solid-svg-icons'
 
 
 
-library.add(faUserSecret, faObjectGroup, faMagnifyingGlassChart, faDisplay, faMobileScreenButton, faServer, faSitemap, faScrewdriverWrench, faListCheck, faNewspaper, faHandshake, faCopyright, faBuildingUser, faMicrochip, faDiagramProject, faPeopleGroup, faPeopleRoof, faBrain, faCodeBranch)
+library.add(faUserSecret, faObjectGroup, faMagnifyingGlassChart, faDisplay, faMobileScreenButton, faServer, faSitemap, faScrewdriverWrench, faListCheck, faNewspaper, faHandshake, faCopyright, faBuildingUser, faMicrochip, faDiagramProject, faPeopleGroup, faPeopleRoof, faBrain, faCodeBranch, faBars)
 
 
 createApp(App)
