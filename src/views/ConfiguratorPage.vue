@@ -115,7 +115,7 @@
                                 Adresse</label>
                             <input type="email" id="email"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-black-500 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 "
-                                placeholder="tomileggt@hodne.de" required>
+                                placeholder="" required>
                         </div>
                         <div>
                             <label for="subject" class="block mb-2 text-sm font-medium text-black-500 ">Betreff </label>
