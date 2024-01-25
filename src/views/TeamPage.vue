@@ -67,7 +67,7 @@ export default {
             members: [
                 {
                     name: "Daniel Valentin Kowalski",
-                    profilePicture: "DanielProfil.jpeg",
+                    profilePicture: "",
                     jobRole: "Frontend Developer",
                     description:
                         "",
@@ -79,10 +79,10 @@ export default {
                 },
                 {
                     name: "Tomislav Pree",
-                    profilePicture: "TomiProfil.jpeg",
+                    profilePicture: "",
                     jobRole: "Backend Developer",
                     description:
-                        "nur am rumwuseln",
+                        "",
                     socialMedia: {
                         linkedIn: "https://www.linkedin.com/in/daniel-kowalski-1b1b3b1b3/",
                         github: "",
@@ -91,7 +91,7 @@ export default {
                 },
                 {
                     name: "Farhan",
-                    profilePicture: "TomiProfil.jpeg",
+                    profilePicture: "",
                     jobRole: "UX Designer",
                     description:
                         "",
